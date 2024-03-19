@@ -8,13 +8,13 @@ namespace RaylibBeef;
 public enum CameraMode : c_int
 {
 	/// Custom camera
-	CAMERA_CUSTOM = 0,
+	CUSTOM = 0,
 	/// Free camera
-	CAMERA_FREE = 1,
+	FREE = 1,
 	/// Orbital camera
-	CAMERA_ORBITAL = 2,
+	ORBITAL = 2,
 	/// First person camera
-	CAMERA_FIRST_PERSON = 3,
+	FIRST_PERSON = 3,
 	/// Third person camera
-	CAMERA_THIRD_PERSON = 4,
+	THIRD_PERSON = 4,
 }

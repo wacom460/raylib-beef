@@ -6,96 +6,14 @@ namespace RaylibBeef;
 public static class Raylib
 {
 	public const int32 RAYLIB_VERSION_MAJOR = 5;
-	
 	public const int32 RAYLIB_VERSION_MINOR = 0;
-	
 	public const int32 RAYLIB_VERSION_PATCH = 0;
-	
 	public const char8* RAYLIB_VERSION = "5.0";
-	
+	/*
 	public const float PI = 3.141592653589793f;
-	
 	public const float DEG2RAD = (PI/180.0f);
-	
 	public const float RAD2DEG = (180.0f/PI);
-	
-	/// Light Gray
-	public const Color LIGHTGRAY = Color(200, 200, 200, 255);
-	
-	/// Gray
-	public const Color GRAY = Color(130, 130, 130, 255);
-	
-	/// Dark Gray
-	public const Color DARKGRAY = Color(80, 80, 80, 255);
-	
-	/// Yellow
-	public const Color YELLOW = Color(253, 249, 0, 255);
-	
-	/// Gold
-	public const Color GOLD = Color(255, 203, 0, 255);
-	
-	/// Orange
-	public const Color ORANGE = Color(255, 161, 0, 255);
-	
-	/// Pink
-	public const Color PINK = Color(255, 109, 194, 255);
-	
-	/// Red
-	public const Color RED = Color(230, 41, 55, 255);
-	
-	/// Maroon
-	public const Color MAROON = Color(190, 33, 55, 255);
-	
-	/// Green
-	public const Color GREEN = Color(0, 228, 48, 255);
-	
-	/// Lime
-	public const Color LIME = Color(0, 158, 47, 255);
-	
-	/// Dark Green
-	public const Color DARKGREEN = Color(0, 117, 44, 255);
-	
-	/// Sky Blue
-	public const Color SKYBLUE = Color(102, 191, 255, 255);
-	
-	/// Blue
-	public const Color BLUE = Color(0, 121, 241, 255);
-	
-	/// Dark Blue
-	public const Color DARKBLUE = Color(0, 82, 172, 255);
-	
-	/// Purple
-	public const Color PURPLE = Color(200, 122, 255, 255);
-	
-	/// Violet
-	public const Color VIOLET = Color(135, 60, 190, 255);
-	
-	/// Dark Purple
-	public const Color DARKPURPLE = Color(112, 31, 126, 255);
-	
-	/// Beige
-	public const Color BEIGE = Color(211, 176, 131, 255);
-	
-	/// Brown
-	public const Color BROWN = Color(127, 106, 79, 255);
-	
-	/// Dark Brown
-	public const Color DARKBROWN = Color(76, 63, 47, 255);
-	
-	/// White
-	public const Color WHITE = Color(255, 255, 255, 255);
-	
-	/// Black
-	public const Color BLACK = Color(0, 0, 0, 255);
-	
-	/// Blank (Transparent)
-	public const Color BLANK = Color(0, 0, 0, 0);
-	
-	/// Magenta
-	public const Color MAGENTA = Color(255, 0, 255, 255);
-	
-	/// My own White (raylib logo)
-	public const Color RAYWHITE = Color(245, 245, 245, 255);
+	*/
 	
 	/// Initialize window and OpenGL context
 	[CLink]
@@ -139,15 +57,15 @@ public static class Raylib
 	
 	/// Check if one specific window flag is enabled
 	[CLink]
-	public static extern bool IsWindowState(int32 flag);
+	public static extern bool IsWindowState(ConfigFlags flag);
 	
 	/// Set window configuration state using flags (only PLATFORM_DESKTOP)
 	[CLink]
-	public static extern void SetWindowState(int32 flags);
+	public static extern void SetWindowState(ConfigFlags flags);
 	
 	/// Clear window configuration state flags
 	[CLink]
-	public static extern void ClearWindowState(int32 flags);
+	public static extern void ClearWindowState(ConfigFlags flags);
 	
 	/// Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP)
 	[CLink]
@@ -235,7 +153,7 @@ public static class Raylib
 	
 	/// Get specified monitor position
 	[CLink]
-	public static extern Vector2 GetMonitorPosition(int32 monitor);
+	public static extern Vector2f GetMonitorPosition(int32 monitor);
 	
 	/// Get specified monitor width (current video mode used by monitor)
 	[CLink]
@@ -259,11 +177,11 @@ public static class Raylib
 	
 	/// Get window position XY on monitor
 	[CLink]
-	public static extern Vector2 GetWindowPosition();
+	public static extern Vector2f GetWindowPosition();
 	
 	/// Get window scale DPI factor
 	[CLink]
-	public static extern Vector2 GetWindowScaleDPI();
+	public static extern Vector2f GetWindowScaleDPI();
 	
 	/// Get the human-readable, UTF-8 encoded name of the specified monitor
 	[CLink]
@@ -335,7 +253,7 @@ public static class Raylib
 	
 	/// Begin blending mode (alpha, additive, multiplied, subtract, custom)
 	[CLink]
-	public static extern void BeginBlendMode(int32 mode);
+	public static extern void BeginBlendMode(BlendMode mode);
 	
 	/// End blending mode (reset to default: alpha blending)
 	[CLink]
@@ -411,7 +329,7 @@ public static class Raylib
 	
 	/// Setup init configuration flags (view FLAGS)
 	[CLink]
-	public static extern void SetConfigFlags(int32 flags);
+	public static extern void SetConfigFlags(ConfigFlags flags);
 	
 	/// Open URL with default system browser (if available)
 	[CLink]
@@ -419,11 +337,11 @@ public static class Raylib
 	
 	/// Show trace log messages (LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR...)
 	[CLink]
-	public static extern void TraceLog(int32 logLevel, char8 * text);
+	public static extern void TraceLog(TraceLogLevel logLevel, char8 * text);
 	
 	/// Set the current threshold (minimum) log level
 	[CLink]
-	public static extern void SetTraceLogLevel(int32 logLevel);
+	public static extern void SetTraceLogLevel(TraceLogLevel logLevel);
 	
 	/// Internal memory allocator
 	[CLink]
@@ -599,23 +517,23 @@ public static class Raylib
 	
 	/// Check if a key has been pressed once
 	[CLink]
-	public static extern bool IsKeyPressed(int32 key);
+	public static extern bool IsKeyPressed(KeyboardKey key);
 	
 	/// Check if a key has been pressed again (Only PLATFORM_DESKTOP)
 	[CLink]
-	public static extern bool IsKeyPressedRepeat(int32 key);
+	public static extern bool IsKeyPressedRepeat(KeyboardKey key);
 	
 	/// Check if a key is being pressed
 	[CLink]
-	public static extern bool IsKeyDown(int32 key);
+	public static extern bool IsKeyDown(KeyboardKey key);
 	
 	/// Check if a key has been released once
 	[CLink]
-	public static extern bool IsKeyReleased(int32 key);
+	public static extern bool IsKeyReleased(KeyboardKey key);
 	
 	/// Check if a key is NOT being pressed
 	[CLink]
-	public static extern bool IsKeyUp(int32 key);
+	public static extern bool IsKeyUp(KeyboardKey key);
 	
 	/// Get key pressed (keycode), call it multiple times for keys queued, returns 0 when the queue is empty
 	[CLink]
@@ -627,7 +545,7 @@ public static class Raylib
 	
 	/// Set a custom key to exit program (default is ESC)
 	[CLink]
-	public static extern void SetExitKey(int32 key);
+	public static extern void SetExitKey(KeyboardKey key);
 	
 	/// Check if a gamepad is available
 	[CLink]
@@ -639,19 +557,19 @@ public static class Raylib
 	
 	/// Check if a gamepad button has been pressed once
 	[CLink]
-	public static extern bool IsGamepadButtonPressed(int32 gamepad, int32 button);
+	public static extern bool IsGamepadButtonPressed(int32 gamepad, GamepadButton button);
 	
 	/// Check if a gamepad button is being pressed
 	[CLink]
-	public static extern bool IsGamepadButtonDown(int32 gamepad, int32 button);
+	public static extern bool IsGamepadButtonDown(int32 gamepad, GamepadButton button);
 	
 	/// Check if a gamepad button has been released once
 	[CLink]
-	public static extern bool IsGamepadButtonReleased(int32 gamepad, int32 button);
+	public static extern bool IsGamepadButtonReleased(int32 gamepad, GamepadButton button);
 	
 	/// Check if a gamepad button is NOT being pressed
 	[CLink]
-	public static extern bool IsGamepadButtonUp(int32 gamepad, int32 button);
+	public static extern bool IsGamepadButtonUp(int32 gamepad, GamepadButton button);
 	
 	/// Get the last gamepad button pressed
 	[CLink]
@@ -663,7 +581,7 @@ public static class Raylib
 	
 	/// Get axis movement value for a gamepad axis
 	[CLink]
-	public static extern float GetGamepadAxisMovement(int32 gamepad, int32 axis);
+	public static extern float GetGamepadAxisMovement(int32 gamepad, GamepadAxis axis);
 	
 	/// Set internal gamepad mappings (SDL_GameControllerDB)
 	[CLink]
@@ -671,19 +589,19 @@ public static class Raylib
 	
 	/// Check if a mouse button has been pressed once
 	[CLink]
-	public static extern bool IsMouseButtonPressed(int32 button);
+	public static extern bool IsMouseButtonPressed(MouseButton button);
 	
 	/// Check if a mouse button is being pressed
 	[CLink]
-	public static extern bool IsMouseButtonDown(int32 button);
+	public static extern bool IsMouseButtonDown(MouseButton button);
 	
 	/// Check if a mouse button has been released once
 	[CLink]
-	public static extern bool IsMouseButtonReleased(int32 button);
+	public static extern bool IsMouseButtonReleased(MouseButton button);
 	
 	/// Check if a mouse button is NOT being pressed
 	[CLink]
-	public static extern bool IsMouseButtonUp(int32 button);
+	public static extern bool IsMouseButtonUp(MouseButton button);
 	
 	/// Get mouse position X
 	[CLink]
@@ -692,14 +610,25 @@ public static class Raylib
 	/// Get mouse position Y
 	[CLink]
 	public static extern int32 GetMouseY();
+
+	public static int32 MouseX => GetMouseX();
+	public static int32 MouseY => GetMouseY();
 	
 	/// Get mouse position XY
 	[CLink]
-	public static extern Vector2 GetMousePosition();
+	public static extern Vector2f GetMousePosition();
+
+	public static Vector2f MousePos
+	{
+		get => GetMousePosition();
+		set => SetMousePosition((.)value.x, (.)value.y);
+	}
 	
 	/// Get mouse delta between frames
 	[CLink]
-	public static extern Vector2 GetMouseDelta();
+	public static extern Vector2f GetMouseDelta();
+
+	public static Vector2f MouseDelta => GetMouseDelta();
 	
 	/// Set mouse position XY
 	[CLink]
@@ -719,11 +648,14 @@ public static class Raylib
 	
 	/// Get mouse wheel movement for both X and Y
 	[CLink]
-	public static extern Vector2 GetMouseWheelMoveV();
+	public static extern Vector2f GetMouseWheelMoveV();
+
+	public static float MouseWheelX => GetMouseWheelMoveV().x;
+	public static float MouseWheelY => GetMouseWheelMoveV().y;
 	
 	/// Set mouse cursor
 	[CLink]
-	public static extern void SetMouseCursor(int32 cursor);
+	public static extern void SetMouseCursor(MouseCursor cursor);
 	
 	/// Get touch position X for touch point 0 (relative to screen size)
 	[CLink]
@@ -735,7 +667,7 @@ public static class Raylib
 	
 	/// Get touch position XY for a touch point index (relative to screen size)
 	[CLink]
-	public static extern Vector2 GetTouchPosition(int32 index);
+	public static extern Vector2f GetTouchPosition(int32 index);
 	
 	/// Get touch point identifier for given index
 	[CLink]
@@ -751,11 +683,11 @@ public static class Raylib
 	
 	/// Check if a gesture have been detected
 	[CLink]
-	public static extern bool IsGestureDetected(int32 gesture);
+	public static extern bool IsGestureDetected(Gesture gesture);
 	
 	/// Get latest detected gesture
 	[CLink]
-	public static extern int32 GetGestureDetected();
+	public static extern Gesture GetGestureDetected();
 	
 	/// Get gesture hold time in milliseconds
 	[CLink]
@@ -763,7 +695,7 @@ public static class Raylib
 	
 	/// Get gesture drag vector
 	[CLink]
-	public static extern Vector2 GetGestureDragVector();
+	public static extern Vector2f GetGestureDragVector();
 	
 	/// Get gesture drag angle
 	[CLink]
@@ -771,7 +703,7 @@ public static class Raylib
 	
 	/// Get gesture pinch delta
 	[CLink]
-	public static extern Vector2 GetGesturePinchVector();
+	public static extern Vector2f GetGesturePinchVector();
 	
 	/// Get gesture pinch angle
 	[CLink]
@@ -779,7 +711,7 @@ public static class Raylib
 	
 	/// Update camera position for selected mode
 	[CLink]
-	public static extern void UpdateCamera(Camera * camera, int32 mode);
+	public static extern void UpdateCamera(Camera * camera, CameraMode mode);
 	
 	/// Load image from file into CPU memory (RAM)
 	[CLink]
@@ -1273,7 +1205,7 @@ public static class Raylib
 	
 	/// Get a ray trace from mouse position
 	[CLink]
-	public static extern Ray GetMouseRay(Vector2 mousePosition, Camera camera);
+	public static extern Ray GetMouseRay(Vector2f mousePosition, Camera camera);
 	
 	/// Get camera transform matrix (view matrix)
 	[CLink]
@@ -1285,19 +1217,19 @@ public static class Raylib
 	
 	/// Get the screen space position for a 3d world space position
 	[CLink]
-	public static extern Vector2 GetWorldToScreen(Vector3 position, Camera camera);
+	public static extern Vector2f GetWorldToScreen(Vector3 position, Camera camera);
 	
 	/// Get the world space position for a 2d camera screen space position
 	[CLink]
-	public static extern Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera);
+	public static extern Vector2f GetScreenToWorld2D(Vector2f position, Camera2D camera);
 	
 	/// Get size position for a 3d world space position
 	[CLink]
-	public static extern Vector2 GetWorldToScreenEx(Vector3 position, Camera camera, int32 width, int32 height);
+	public static extern Vector2f GetWorldToScreenEx(Vector3 position, Camera camera, int32 width, int32 height);
 	
 	/// Get the screen space position for a 2d camera world space position
 	[CLink]
-	public static extern Vector2 GetWorldToScreen2D(Vector2 position, Camera2D camera);
+	public static extern Vector2f GetWorldToScreen2D(Vector2f position, Camera2D camera);
 	
 	/// Unload filepaths
 	[CLink]
@@ -1329,7 +1261,7 @@ public static class Raylib
 	
 	/// Draw a pixel (Vector version)
 	[CLink]
-	public static extern void DrawPixelV(Vector2 position, Color color);
+	public static extern void DrawPixelV(Vector2f position, Color color);
 	
 	/// Draw a line
 	[CLink]
@@ -1337,19 +1269,19 @@ public static class Raylib
 	
 	/// Draw a line (using gl lines)
 	[CLink]
-	public static extern void DrawLineV(Vector2 startPos, Vector2 endPos, Color color);
+	public static extern void DrawLineV(Vector2f startPos, Vector2f endPos, Color color);
 	
 	/// Draw a line (using triangles/quads)
 	[CLink]
-	public static extern void DrawLineEx(Vector2 startPos, Vector2 endPos, float thick, Color color);
+	public static extern void DrawLineEx(Vector2f startPos, Vector2f endPos, float thick, Color color);
 	
 	/// Draw lines sequence (using gl lines)
 	[CLink]
-	public static extern void DrawLineStrip(Vector2 * points, int32 pointCount, Color color);
+	public static extern void DrawLineStrip(Vector2f * points, int32 pointCount, Color color);
 	
 	/// Draw line segment cubic-bezier in-out interpolation
 	[CLink]
-	public static extern void DrawLineBezier(Vector2 startPos, Vector2 endPos, float thick, Color color);
+	public static extern void DrawLineBezier(Vector2f startPos, Vector2f endPos, float thick, Color color);
 	
 	/// Draw a color-filled circle
 	[CLink]
@@ -1357,11 +1289,11 @@ public static class Raylib
 	
 	/// Draw a piece of a circle
 	[CLink]
-	public static extern void DrawCircleSector(Vector2 center, float radius, float startAngle, float endAngle, int32 segments, Color color);
+	public static extern void DrawCircleSector(Vector2f center, float radius, float startAngle, float endAngle, int32 segments, Color color);
 	
 	/// Draw circle sector outline
 	[CLink]
-	public static extern void DrawCircleSectorLines(Vector2 center, float radius, float startAngle, float endAngle, int32 segments, Color color);
+	public static extern void DrawCircleSectorLines(Vector2f center, float radius, float startAngle, float endAngle, int32 segments, Color color);
 	
 	/// Draw a gradient-filled circle
 	[CLink]
@@ -1369,7 +1301,7 @@ public static class Raylib
 	
 	/// Draw a color-filled circle (Vector version)
 	[CLink]
-	public static extern void DrawCircleV(Vector2 center, float radius, Color color);
+	public static extern void DrawCircleV(Vector2f center, float radius, Color color);
 	
 	/// Draw circle outline
 	[CLink]
@@ -1377,7 +1309,7 @@ public static class Raylib
 	
 	/// Draw circle outline (Vector version)
 	[CLink]
-	public static extern void DrawCircleLinesV(Vector2 center, float radius, Color color);
+	public static extern void DrawCircleLinesV(Vector2f center, float radius, Color color);
 	
 	/// Draw ellipse
 	[CLink]
@@ -1389,11 +1321,11 @@ public static class Raylib
 	
 	/// Draw ring
 	[CLink]
-	public static extern void DrawRing(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int32 segments, Color color);
+	public static extern void DrawRing(Vector2f center, float innerRadius, float outerRadius, float startAngle, float endAngle, int32 segments, Color color);
 	
 	/// Draw ring outline
 	[CLink]
-	public static extern void DrawRingLines(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int32 segments, Color color);
+	public static extern void DrawRingLines(Vector2f center, float innerRadius, float outerRadius, float startAngle, float endAngle, int32 segments, Color color);
 	
 	/// Draw a color-filled rectangle
 	[CLink]
@@ -1401,7 +1333,7 @@ public static class Raylib
 	
 	/// Draw a color-filled rectangle (Vector version)
 	[CLink]
-	public static extern void DrawRectangleV(Vector2 position, Vector2 size, Color color);
+	public static extern void DrawRectangleV(Vector2f position, Vector2f size, Color color);
 	
 	/// Draw a color-filled rectangle
 	[CLink]
@@ -1409,7 +1341,7 @@ public static class Raylib
 	
 	/// Draw a color-filled rectangle with pro parameters
 	[CLink]
-	public static extern void DrawRectanglePro(Rectangle rec, Vector2 origin, float rotation, Color color);
+	public static extern void DrawRectanglePro(Rectangle rec, Vector2f origin, float rotation, Color color);
 	
 	/// Draw a vertical-gradient-filled rectangle
 	[CLink]
@@ -1441,91 +1373,91 @@ public static class Raylib
 	
 	/// Draw a color-filled triangle (vertex in counter-clockwise order!)
 	[CLink]
-	public static extern void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color);
+	public static extern void DrawTriangle(Vector2f v1, Vector2f v2, Vector2f v3, Color color);
 	
 	/// Draw triangle outline (vertex in counter-clockwise order!)
 	[CLink]
-	public static extern void DrawTriangleLines(Vector2 v1, Vector2 v2, Vector2 v3, Color color);
+	public static extern void DrawTriangleLines(Vector2f v1, Vector2f v2, Vector2f v3, Color color);
 	
 	/// Draw a triangle fan defined by points (first vertex is the center)
 	[CLink]
-	public static extern void DrawTriangleFan(Vector2 * points, int32 pointCount, Color color);
+	public static extern void DrawTriangleFan(Vector2f * points, int32 pointCount, Color color);
 	
 	/// Draw a triangle strip defined by points
 	[CLink]
-	public static extern void DrawTriangleStrip(Vector2 * points, int32 pointCount, Color color);
+	public static extern void DrawTriangleStrip(Vector2f * points, int32 pointCount, Color color);
 	
 	/// Draw a regular polygon (Vector version)
 	[CLink]
-	public static extern void DrawPoly(Vector2 center, int32 sides, float radius, float rotation, Color color);
+	public static extern void DrawPoly(Vector2f center, int32 sides, float radius, float rotation, Color color);
 	
 	/// Draw a polygon outline of n sides
 	[CLink]
-	public static extern void DrawPolyLines(Vector2 center, int32 sides, float radius, float rotation, Color color);
+	public static extern void DrawPolyLines(Vector2f center, int32 sides, float radius, float rotation, Color color);
 	
 	/// Draw a polygon outline of n sides with extended parameters
 	[CLink]
-	public static extern void DrawPolyLinesEx(Vector2 center, int32 sides, float radius, float rotation, float lineThick, Color color);
+	public static extern void DrawPolyLinesEx(Vector2f center, int32 sides, float radius, float rotation, float lineThick, Color color);
 	
 	/// Draw spline: Linear, minimum 2 points
 	[CLink]
-	public static extern void DrawSplineLinear(Vector2 * points, int32 pointCount, float thick, Color color);
+	public static extern void DrawSplineLinear(Vector2f * points, int32 pointCount, float thick, Color color);
 	
 	/// Draw spline: B-Spline, minimum 4 points
 	[CLink]
-	public static extern void DrawSplineBasis(Vector2 * points, int32 pointCount, float thick, Color color);
+	public static extern void DrawSplineBasis(Vector2f * points, int32 pointCount, float thick, Color color);
 	
 	/// Draw spline: Catmull-Rom, minimum 4 points
 	[CLink]
-	public static extern void DrawSplineCatmullRom(Vector2 * points, int32 pointCount, float thick, Color color);
+	public static extern void DrawSplineCatmullRom(Vector2f * points, int32 pointCount, float thick, Color color);
 	
 	/// Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...]
 	[CLink]
-	public static extern void DrawSplineBezierQuadratic(Vector2 * points, int32 pointCount, float thick, Color color);
+	public static extern void DrawSplineBezierQuadratic(Vector2f * points, int32 pointCount, float thick, Color color);
 	
 	/// Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...]
 	[CLink]
-	public static extern void DrawSplineBezierCubic(Vector2 * points, int32 pointCount, float thick, Color color);
+	public static extern void DrawSplineBezierCubic(Vector2f * points, int32 pointCount, float thick, Color color);
 	
 	/// Draw spline segment: Linear, 2 points
 	[CLink]
-	public static extern void DrawSplineSegmentLinear(Vector2 p1, Vector2 p2, float thick, Color color);
+	public static extern void DrawSplineSegmentLinear(Vector2f p1, Vector2f p2, float thick, Color color);
 	
 	/// Draw spline segment: B-Spline, 4 points
 	[CLink]
-	public static extern void DrawSplineSegmentBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color);
+	public static extern void DrawSplineSegmentBasis(Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, float thick, Color color);
 	
 	/// Draw spline segment: Catmull-Rom, 4 points
 	[CLink]
-	public static extern void DrawSplineSegmentCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color);
+	public static extern void DrawSplineSegmentCatmullRom(Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, float thick, Color color);
 	
 	/// Draw spline segment: Quadratic Bezier, 2 points, 1 control point
 	[CLink]
-	public static extern void DrawSplineSegmentBezierQuadratic(Vector2 p1, Vector2 c2, Vector2 p3, float thick, Color color);
+	public static extern void DrawSplineSegmentBezierQuadratic(Vector2f p1, Vector2f c2, Vector2f p3, float thick, Color color);
 	
 	/// Draw spline segment: Cubic Bezier, 2 points, 2 control points
 	[CLink]
-	public static extern void DrawSplineSegmentBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float thick, Color color);
+	public static extern void DrawSplineSegmentBezierCubic(Vector2f p1, Vector2f c2, Vector2f c3, Vector2f p4, float thick, Color color);
 	
 	/// Get (evaluate) spline point: Linear
 	[CLink]
-	public static extern Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t);
+	public static extern Vector2f GetSplinePointLinear(Vector2f startPos, Vector2f endPos, float t);
 	
 	/// Get (evaluate) spline point: B-Spline
 	[CLink]
-	public static extern Vector2 GetSplinePointBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t);
+	public static extern Vector2f GetSplinePointBasis(Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, float t);
 	
 	/// Get (evaluate) spline point: Catmull-Rom
 	[CLink]
-	public static extern Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t);
+	public static extern Vector2f GetSplinePointCatmullRom(Vector2f p1, Vector2f p2, Vector2f p3, Vector2f p4, float t);
 	
 	/// Get (evaluate) spline point: Quadratic Bezier
 	[CLink]
-	public static extern Vector2 GetSplinePointBezierQuad(Vector2 p1, Vector2 c2, Vector2 p3, float t);
+	public static extern Vector2f GetSplinePointBezierQuad(Vector2f p1, Vector2f c2, Vector2f p3, float t);
 	
 	/// Get (evaluate) spline point: Cubic Bezier
 	[CLink]
-	public static extern Vector2 GetSplinePointBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float t);
+	public static extern Vector2f GetSplinePointBezierCubic(Vector2f p1, Vector2f c2, Vector2f c3, Vector2f p4, float t);
 	
 	/// Check collision between two rectangles
 	[CLink]
@@ -1533,35 +1465,35 @@ public static class Raylib
 	
 	/// Check collision between two circles
 	[CLink]
-	public static extern bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, float radius2);
+	public static extern bool CheckCollisionCircles(Vector2f center1, float radius1, Vector2f center2, float radius2);
 	
 	/// Check collision between circle and rectangle
 	[CLink]
-	public static extern bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);
+	public static extern bool CheckCollisionCircleRec(Vector2f center, float radius, Rectangle rec);
 	
 	/// Check if point is inside rectangle
 	[CLink]
-	public static extern bool CheckCollisionPointRec(Vector2 point, Rectangle rec);
+	public static extern bool CheckCollisionPointRec(Vector2f point, Rectangle rec);
 	
 	/// Check if point is inside circle
 	[CLink]
-	public static extern bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius);
+	public static extern bool CheckCollisionPointCircle(Vector2f point, Vector2f center, float radius);
 	
 	/// Check if point is inside a triangle
 	[CLink]
-	public static extern bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3);
+	public static extern bool CheckCollisionPointTriangle(Vector2f point, Vector2f p1, Vector2f p2, Vector2f p3);
 	
 	/// Check if point is within a polygon described by array of vertices
 	[CLink]
-	public static extern bool CheckCollisionPointPoly(Vector2 point, Vector2 * points, int32 pointCount);
+	public static extern bool CheckCollisionPointPoly(Vector2f point, Vector2f * points, int32 pointCount);
 	
 	/// Check the collision between two lines defined by two points each, returns collision point by reference
 	[CLink]
-	public static extern bool CheckCollisionLines(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2, Vector2 * collisionPoint);
+	public static extern bool CheckCollisionLines(Vector2f startPos1, Vector2f endPos1, Vector2f startPos2, Vector2f endPos2, Vector2f * collisionPoint);
 	
 	/// Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
 	[CLink]
-	public static extern bool CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, int32 threshold);
+	public static extern bool CheckCollisionPointLine(Vector2f point, Vector2f p1, Vector2f p2, int32 threshold);
 	
 	/// Get collision rectangle for two rectangles collision
 	[CLink]
@@ -1681,7 +1613,7 @@ public static class Raylib
 	
 	/// Draw pixel within an image (Vector version)
 	[CLink]
-	public static extern void ImageDrawPixelV(Image * dst, Vector2 position, Color color);
+	public static extern void ImageDrawPixelV(Image * dst, Vector2f position, Color color);
 	
 	/// Draw line within an image
 	[CLink]
@@ -1689,7 +1621,7 @@ public static class Raylib
 	
 	/// Draw line within an image (Vector version)
 	[CLink]
-	public static extern void ImageDrawLineV(Image * dst, Vector2 start, Vector2 end, Color color);
+	public static extern void ImageDrawLineV(Image * dst, Vector2f start, Vector2f end, Color color);
 	
 	/// Draw a filled circle within an image
 	[CLink]
@@ -1697,7 +1629,7 @@ public static class Raylib
 	
 	/// Draw a filled circle within an image (Vector version)
 	[CLink]
-	public static extern void ImageDrawCircleV(Image * dst, Vector2 center, int32 radius, Color color);
+	public static extern void ImageDrawCircleV(Image * dst, Vector2f center, int32 radius, Color color);
 	
 	/// Draw circle outline within an image
 	[CLink]
@@ -1705,7 +1637,7 @@ public static class Raylib
 	
 	/// Draw circle outline within an image (Vector version)
 	[CLink]
-	public static extern void ImageDrawCircleLinesV(Image * dst, Vector2 center, int32 radius, Color color);
+	public static extern void ImageDrawCircleLinesV(Image * dst, Vector2f center, int32 radius, Color color);
 	
 	/// Draw rectangle within an image
 	[CLink]
@@ -1713,7 +1645,7 @@ public static class Raylib
 	
 	/// Draw rectangle within an image (Vector version)
 	[CLink]
-	public static extern void ImageDrawRectangleV(Image * dst, Vector2 position, Vector2 size, Color color);
+	public static extern void ImageDrawRectangleV(Image * dst, Vector2f position, Vector2f size, Color color);
 	
 	/// Draw rectangle within an image
 	[CLink]
@@ -1733,7 +1665,7 @@ public static class Raylib
 	
 	/// Draw text (custom sprite font) within an image (destination)
 	[CLink]
-	public static extern void ImageDrawTextEx(Image * dst, Font font, char8 * text, Vector2 position, float fontSize, float spacing, Color tint);
+	public static extern void ImageDrawTextEx(Image * dst, Font font, char8 * text, Vector2f position, float fontSize, float spacing, Color tint);
 	
 	/// Load texture from image data
 	[CLink]
@@ -1781,23 +1713,23 @@ public static class Raylib
 	
 	/// Draw a Texture2D with position defined as Vector2
 	[CLink]
-	public static extern void DrawTextureV(Texture2D texture, Vector2 position, Color tint);
+	public static extern void DrawTextureV(Texture2D texture, Vector2f position, Color tint);
 	
 	/// Draw a Texture2D with extended parameters
 	[CLink]
-	public static extern void DrawTextureEx(Texture2D texture, Vector2 position, float rotation, float scale, Color tint);
+	public static extern void DrawTextureEx(Texture2D texture, Vector2f position, float rotation, float scale, Color tint);
 	
 	/// Draw a part of a texture defined by a rectangle
 	[CLink]
-	public static extern void DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, Color tint);
+	public static extern void DrawTextureRec(Texture2D texture, Rectangle source, Vector2f position, Color tint);
 	
 	/// Draw a part of a texture defined by a rectangle with 'pro' parameters
 	[CLink]
-	public static extern void DrawTexturePro(Texture2D texture, Rectangle source, Rectangle dest, Vector2 origin, float rotation, Color tint);
+	public static extern void DrawTexturePro(Texture2D texture, Rectangle source, Rectangle dest, Vector2f origin, float rotation, Color tint);
 	
 	/// Draws a texture (or part of it) that stretches or shrinks nicely
 	[CLink]
-	public static extern void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint);
+	public static extern void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2f origin, float rotation, Color tint);
 	
 	/// Get color with alpha applied, alpha goes from 0.0f to 1.0f
 	[CLink]
@@ -1865,23 +1797,23 @@ public static class Raylib
 	
 	/// Draw text using font and additional parameters
 	[CLink]
-	public static extern void DrawTextEx(Font font, char8 * text, Vector2 position, float fontSize, float spacing, Color tint);
+	public static extern void DrawTextEx(Font font, char8 * text, Vector2f position, float fontSize, float spacing, Color tint);
 	
 	/// Draw text using Font and pro parameters (rotation)
 	[CLink]
-	public static extern void DrawTextPro(Font font, char8 * text, Vector2 position, Vector2 origin, float rotation, float fontSize, float spacing, Color tint);
+	public static extern void DrawTextPro(Font font, char8 * text, Vector2f position, Vector2f origin, float rotation, float fontSize, float spacing, Color tint);
 	
 	/// Draw one character (codepoint)
 	[CLink]
-	public static extern void DrawTextCodepoint(Font font, int32 codepoint, Vector2 position, float fontSize, Color tint);
+	public static extern void DrawTextCodepoint(Font font, int32 codepoint, Vector2f position, float fontSize, Color tint);
 	
 	/// Draw multiple character (codepoint)
 	[CLink]
-	public static extern void DrawTextCodepoints(Font font, int32 * codepoints, int32 codepointCount, Vector2 position, float fontSize, float spacing, Color tint);
+	public static extern void DrawTextCodepoints(Font font, int32 * codepoints, int32 codepointCount, Vector2f position, float fontSize, float spacing, Color tint);
 	
 	/// Measure string size for Font
 	[CLink]
-	public static extern Vector2 MeasureTextEx(Font font, char8 * text, float fontSize, float spacing);
+	public static extern Vector2f MeasureTextEx(Font font, char8 * text, float fontSize, float spacing);
 	
 	/// Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found
 	[CLink]
@@ -1969,7 +1901,7 @@ public static class Raylib
 	
 	/// Draw a plane XZ
 	[CLink]
-	public static extern void DrawPlane(Vector3 centerPos, Vector2 size, Color color);
+	public static extern void DrawPlane(Vector3 centerPos, Vector2f size, Color color);
 	
 	/// Draw a ray line
 	[CLink]
@@ -2017,11 +1949,11 @@ public static class Raylib
 	
 	/// Draw a billboard texture defined by source
 	[CLink]
-	public static extern void DrawBillboardRec(Camera camera, Texture2D texture, Rectangle source, Vector3 position, Vector2 size, Color tint);
+	public static extern void DrawBillboardRec(Camera camera, Texture2D texture, Rectangle source, Vector3 position, Vector2f size, Color tint);
 	
 	/// Draw a billboard texture defined by source and rotation
 	[CLink]
-	public static extern void DrawBillboardPro(Camera camera, Texture2D texture, Rectangle source, Vector3 position, Vector3 up, Vector2 size, Vector2 origin, float rotation, Color tint);
+	public static extern void DrawBillboardPro(Camera camera, Texture2D texture, Rectangle source, Vector3 position, Vector3 up, Vector2f size, Vector2f origin, float rotation, Color tint);
 	
 	/// Update mesh vertex data in GPU for a specific buffer index
 	[CLink]

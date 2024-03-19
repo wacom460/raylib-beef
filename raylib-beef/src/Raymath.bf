@@ -39,11 +39,11 @@ public static class Raymath
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Zero();
+	public static extern Vector2f Vector2Zero();
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2One();
+	public static extern Vector2f Vector2One();
 	
 	/// 
 	[CLink]
@@ -113,103 +113,103 @@ public static class Raymath
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Add(Vector2 v1, Vector2 v2);
+	public static extern Vector2f Vector2Add(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2AddValue(Vector2 v, float add);
+	public static extern Vector2f Vector2AddValue(Vector2f v, float add);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Subtract(Vector2 v1, Vector2 v2);
+	public static extern Vector2f Vector2Subtract(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2SubtractValue(Vector2 v, float sub);
+	public static extern Vector2f Vector2SubtractValue(Vector2f v, float sub);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2Length(Vector2 v);
+	public static extern float Vector2Length(Vector2f v);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2LengthSqr(Vector2 v);
+	public static extern float Vector2LengthSqr(Vector2f v);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2DotProduct(Vector2 v1, Vector2 v2);
+	public static extern float Vector2DotProduct(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2Distance(Vector2 v1, Vector2 v2);
+	public static extern float Vector2Distance(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2DistanceSqr(Vector2 v1, Vector2 v2);
+	public static extern float Vector2DistanceSqr(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2Angle(Vector2 v1, Vector2 v2);
+	public static extern float Vector2Angle(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern float Vector2LineAngle(Vector2 start, Vector2 end);
+	public static extern float Vector2LineAngle(Vector2f start, Vector2f end);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Scale(Vector2 v, float scale);
+	public static extern Vector2f Vector2Scale(Vector2f v, float scale);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Multiply(Vector2 v1, Vector2 v2);
+	public static extern Vector2f Vector2Multiply(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Negate(Vector2 v);
+	public static extern Vector2f Vector2Negate(Vector2f v);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Divide(Vector2 v1, Vector2 v2);
+	public static extern Vector2f Vector2Divide(Vector2f v1, Vector2f v2);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Normalize(Vector2 v);
+	public static extern Vector2f Vector2Normalize(Vector2f v);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Transform(Vector2 v, Matrix mat);
+	public static extern Vector2f Vector2Transform(Vector2f v, Matrix mat);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, float amount);
+	public static extern Vector2f Vector2Lerp(Vector2f v1, Vector2f v2, float amount);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Reflect(Vector2 v, Vector2 normal);
+	public static extern Vector2f Vector2Reflect(Vector2f v, Vector2f normal);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Rotate(Vector2 v, float angle);
+	public static extern Vector2f Vector2Rotate(Vector2f v, float angle);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, float maxDistance);
+	public static extern Vector2f Vector2MoveTowards(Vector2f v, Vector2f target, float maxDistance);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Invert(Vector2 v);
+	public static extern Vector2f Vector2Invert(Vector2f v);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max);
+	public static extern Vector2f Vector2Clamp(Vector2f v, Vector2f min, Vector2f max);
 	
 	/// 
 	[CLink]
-	public static extern Vector2 Vector2ClampValue(Vector2 v, float min, float max);
+	public static extern Vector2f Vector2ClampValue(Vector2f v, float min, float max);
 	
 	/// 
 	[CLink]
-	public static extern int32 Vector2Equals(Vector2 p, Vector2 q);
+	public static extern int32 Vector2Equals(Vector2f p, Vector2f q);
 	
 	/// 
 	[CLink]

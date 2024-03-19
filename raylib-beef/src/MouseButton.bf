@@ -8,17 +8,17 @@ namespace RaylibBeef;
 public enum MouseButton : c_int
 {
 	/// Mouse button left
-	MOUSE_BUTTON_LEFT = 0,
+	LEFT = 0,
 	/// Mouse button right
-	MOUSE_BUTTON_RIGHT = 1,
+	RIGHT = 1,
 	/// Mouse button middle (pressed wheel)
-	MOUSE_BUTTON_MIDDLE = 2,
+	MIDDLE = 2,
 	/// Mouse button side (advanced mouse device)
-	MOUSE_BUTTON_SIDE = 3,
+	SIDE = 3,
 	/// Mouse button extra (advanced mouse device)
-	MOUSE_BUTTON_EXTRA = 4,
+	EXTRA = 4,
 	/// Mouse button forward (advanced mouse device)
-	MOUSE_BUTTON_FORWARD = 5,
+	FORWARD = 5,
 	/// Mouse button back (advanced mouse device)
-	MOUSE_BUTTON_BACK = 6,
+	BACK = 6,
 }

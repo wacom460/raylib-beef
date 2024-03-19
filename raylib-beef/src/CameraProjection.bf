@@ -8,7 +8,7 @@ namespace RaylibBeef;
 public enum CameraProjection : c_int
 {
 	/// Perspective projection
-	CAMERA_PERSPECTIVE = 0,
+	PERSPECTIVE = 0,
 	/// Orthographic projection
-	CAMERA_ORTHOGRAPHIC = 1,
+	ORTHOGRAPHIC = 1,
 }
